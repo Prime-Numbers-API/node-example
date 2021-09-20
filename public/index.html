@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prime Numbers API examples</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="css/nprogress.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="http://prime-numbers-api.com/" target="_blank" class="site_title">
+                            <i class="fa fa-list-ol"></i>
+                            <span>Prime Example</span>
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <br />
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <ul class="nav side-menu">
+                                <li>
+                                    <a>
+                                        <i class="fa fa-book"></i> API Docs
+                                        <span class="fa fa-chevron-down"></span>
+                                    </a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="https://documenter.getpostman.com/view/4967421/U16kqQd3" target="_blank">is-this-number-prime (free)</a></li>
+                                        <li><a href="https://documenter.getpostman.com/view/4967421/U16kqQd3" target="_blank">get-random-prime (free)</a></li>
+                                        <li><a href="https://documenter.getpostman.com/view/4967421/U16kqQd3" target="_blank">get-all-primes-between-two-numbers (paid)</a></li>
+                                        <li><a href="https://documenter.getpostman.com/view/4967421/U16kqQd3" target="_blank">prospect-primes-between-two-numbers (paid)</a></li>
+                                        <li><a href="https://documenter.getpostman.com/view/4967421/U16kqQd3" target="_blank">get-isolated-random-prime (paid)</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a>
+                                        <i class="fa fa-github"></i>Code Examples
+                                        <span class="fa fa-chevron-down"></span>
+                                    </a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="https://github.com/Prime-Numbers-API/jquery-example" target="_blank">JavaScript jQuery Example</a></li>
+                                        <li><a href="https://github.com/Prime-Numbers-API/javascript-fetch-example" target="_blank">JavaScript Fetch Example</a></li>
+                                        <li><a href="https://github.com/Prime-Numbers-API/react-example" target="_blank">React Example</a></li>
+                                        <li><a href="https://github.com/Prime-Numbers-API/node-example" target="_blank">NodeJS Example</a></li>
+                                        <li><a href="https://github.com/Prime-Numbers-API/php-example" target="_blank">PHP Example</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /sidebar menu -->
+                </div>
+            </div>
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+                    <nav class="nav navbar-nav">
+                        <ul class=" navbar-right">
+                            <li role="presentation" class="nav-item dropdown open">
+                                <a href="http://prime-numbers-api.com/" target="_blank">
+                                    <i class="fa fa-is-this-number-prime"></i> Prime-Numbers-API.com
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+                    <div class="clearfix"></div>
+                    <div class="row">
+
+
+                        <div class="col-md-12 col-sm-12  ">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>
+                                        <a href="http://prime-numbers-api.com/" target="_blank">
+                                            <i class="fa fa-is-this-number-prime"></i> Prime-Numbers-API.com
+                                        </a>
+                                        <small>
+                                            <i class="fa fa-chevron-right"></i> JavaScript jQuery Example
+                                            </small>
+                                    </h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+
+                                    <ul class="nav nav-tabs bar_tabs" id="myTab" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="is-this-number-prime-tab" data-toggle="tab" href="#is-this-number-prime" role="tab" aria-controls="is-this-number-prime" aria-selected="true">is this number prime</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="get-random-prime-tab" data-toggle="tab" href="#get-random-prime" role="tab" aria-controls="get-random-prime" aria-selected="false">get random prime</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="get-all-primes-between-two-numbers-tab" data-toggle="tab" href="#get-all-primes-between-two-numbers" role="tab" aria-controls="get-all-primes-between-two-numbers" aria-selected="false">get all primes between two numbers</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="prospect-primes-between-two-numbers-tab" data-toggle="tab" href="#prospect-primes-between-two-numbers" role="tab" aria-controls="prospect-primes-between-two-numbers" aria-selected="false">prospect-primes-between-two-numbers</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="get-isolated-random-prime-tab" data-toggle="tab" href="#get-isolated-random-prime" role="tab" aria-controls="get-isolated-random-prime" aria-selected="false">get-isolated-random-prime</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="is-this-number-prime" role="tabpanel" aria-labelledby="is-this-number-prime-tab">
+                                            <form class="form-horizontal form-label-left is-this-number-prime">
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="is-this-number-prime-apiKey">
+                                                        apiKey
+                                                        <span class="required">*</span>
+                                                        </label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <input type="text" id="is-this-number-prime-apiKey" name="is-this-number-prime-apiKey" required="required" class="form-control  " value="123">
+                                                        <br />(Required) your API key
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="is-this-number-prime-number-check-number">
+                                                        Check Number
+                                                        <span class="required">*</span>
+                                                        </label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <input type="number" id="is-this-number-prime-number-check-number" name="is-this-number-prime-number-check-number" required="required" class="form-control " value="79">
+                                                        <br />(Required) enter a number to check if it is prime or composite (between 1 and 10^12).
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Include Explanations</label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <select id="is-this-number-prime-include-explanations" class="select2_single form-control" tabindex="-1" required="required">
+                                                            <option value="true">true</option>
+                                                            <option value="false" selected>false</option>
+                                                        </select>
+                                                        <br />includes the full explanations for each item if true (default is false)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Include Prime Types List</label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <select id="is-this-number-prime-include-prime-types-list" class="select2_single form-control" tabindex="-1" required="required">
+                                                            <option value="true">true</option>
+                                                            <option value="false" selected>false</option>
+                                                        </select>
+                                                        <br />includes the full prime types list for each item if true (default is false)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align">language <span class="required">*</span>
+                                                        </label>
+
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <select id="is-this-number-prime-language" class="select2_single form-control" tabindex="-1" required="required">
+                                                            <option value="english" selected>english</option>
+                                                            <option value="mandarin">mandarin</option>
+                                                            <option value="hindi">hindi</option>
+                                                            <option value="spanish">spanish</option>
+                                                            <option value="french">french</option>
+                                                            <option value="german">german</option>
+                                                            <option value="italian">italian</option>
+                                                            <option value="japanese">japanese</option>
+                                                            <option value="russian">russian</option>
+                                                        </select>
+                                                        <br />show the output translated into that language (it can be english, mandarin, hindi, spanish, french, german, italian, japanese, russian) (default is english)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-md-9 col-sm-9  offset-md-3">
+                                                        <button class="btn btn-secondary" type="reset">Cancel</button>
+                                                        <button type="submit" class="btn btn-success">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <div class="alert alert-danger alert-dismissible show-error error-is-this-number-prime" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                                <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
+                                            </div>
+                                            <!-- display results -->
+                                            <div class="x_title display-results results-is-this-number-prime">
+                                                <h2>Basic Tables <small>basic table subtitle</small></h2>
+                                                <ul class="nav navbar-right panel_toolbox">
+                                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                            <a class="dropdown-item" href="#">Settings 1</a>
+                                                            <a class="dropdown-item" href="#">Settings 2</a>
+                                                        </div>
+                                                    </li>
+                                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                                    </li>
+                                                </ul>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="x_content display-results results-is-this-number-prime">
+
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Key</th>
+                                                            <th>Value</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="results-is-this-number-prime-show">
+
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+
+                                            <!-- /display results -->
+                                        </div>
+                                        <div class="tab-pane fade" id="get-random-prime" role="tabpanel" aria-labelledby="get-random-prime-tab">
+                                            <form class="form-horizontal form-label-left get-random-prime">
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="get-random-prime-apiKey">
+                                                        apiKey
+                                                        <span class="required">*</span>
+                                                        </label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <input type="text" id="get-random-prime-apiKey" name="get-random-prime-apiKey" required="required" class="form-control  " value="123">
+                                                        <br />(Required) your API key
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="get-random-prime-start">
+                                                        start
+                                                        <span class="required">*</span>
+                                                        </label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <input type="number" id="get-random-prime-start" name="get-random-prime-start" required="required" class="form-control " value="330">
+                                                        <br />(Required if the end is specified) the number from which the process will start (needs to be smaller than the end)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="get-random-prime-end">
+                                                        end
+                                                        <span class="required">*</span>
+                                                        </label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <input type="number" id="get-random-prime-end" name="get-random-prime-end" required="required" class="form-control " value="1000">
+                                                        <br />(Required if the start is specified) the number to which the process will end (needs to be larger than the start)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Include Explanations</label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <select id="get-random-prime-include-explanations" class="select2_single form-control" tabindex="-1" required="required">
+                                                            <option value="true">true</option>
+                                                            <option value="false" selected>false</option>
+                                                        </select>
+                                                        <br />includes the full explanations for each item if true (default is false)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Include Prime Types List</label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <select id="get-random-prime-include-prime-types-list" class="select2_single form-control" tabindex="-1" required="required">
+                                                            <option value="true">true</option>
+                                                            <option value="false" selected>false</option>
+                                                        </select>
+                                                        <br />includes the full prime types list for each item if true (default is false)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align">language <span class="required">*</span>
+                                                        </label>
+
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <select id="get-random-prime-language" class="select2_single form-control" tabindex="-1" required="required">
+                                                            <option value="english" selected>english</option>
+                                                            <option value="mandarin">mandarin</option>
+                                                            <option value="hindi">hindi</option>
+                                                            <option value="spanish">spanish</option>
+                                                            <option value="french">french</option>
+                                                            <option value="german">german</option>
+                                                            <option value="italian">italian</option>
+                                                            <option value="japanese">japanese</option>
+                                                            <option value="russian">russian</option>
+                                                        </select>
+                                                        <br />show the output translated into that language (it can be english, mandarin, hindi, spanish, french, german, italian, japanese, russian) (default is english)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-md-9 col-sm-9  offset-md-3">
+                                                        <button class="btn btn-secondary" type="reset">Cancel</button>
+                                                        <button type="submit" class="btn btn-success">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <div class="alert alert-danger alert-dismissible show-error error-get-random-prime" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                                <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
+                                            </div>
+                                            <!-- display results -->
+                                            <div class="x_title display-results results-get-random-prime">
+                                                <h2>Basic Tables <small>basic table subtitle</small></h2>
+                                                <ul class="nav navbar-right panel_toolbox">
+                                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                            <a class="dropdown-item" href="#">Settings 1</a>
+                                                            <a class="dropdown-item" href="#">Settings 2</a>
+                                                        </div>
+                                                    </li>
+                                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                                    </li>
+                                                </ul>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="x_content display-results results-get-random-prime">
+
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Key</th>
+                                                            <th>Value</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="results-get-random-prime-show">
+
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+
+                                            <!-- /display results -->
+                                        </div>
+                                        <div class="tab-pane fade" id="get-all-primes-between-two-numbers" role="tabpanel" aria-labelledby="get-all-primes-between-two-numbers-tab">
+                                            <form class="form-horizontal form-label-left get-all-primes-between-two-numbers">
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="get-all-primes-between-two-numbers-apiKey">
+                                                        apiKey
+                                                        <span class="required">*</span>
+                                                        </label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <input type="text" id="get-all-primes-between-two-numbers-apiKey" name="get-all-primes-between-two-numbers-apiKey" required="required" class="form-control  " value="123">
+                                                        <br />(Required) your API key
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="get-all-primes-between-two-numbers-start">
+                                                        start
+                                                        <span class="required">*</span>
+                                                        </label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <input type="number" id="get-all-primes-between-two-numbers-start" name="get-all-primes-between-two-numbers-start" required="required" class="form-control " value="330">
+                                                        <br />(Required if the end is specified) the number from which the process will start (needs to be smaller than the end)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="get-all-primes-between-two-numbers-end">
+                                                        end
+                                                        <span class="required">*</span>
+                                                        </label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <input type="number" id="get-all-primes-between-two-numbers-end" name="get-all-primes-between-two-numbers-end" required="required" class="form-control " value="1000">
+                                                        <br />(Required if the start is specified) the number to which the process will end (needs to be larger than the start)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Include Explanations</label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <select id="get-all-primes-between-two-numbers-include-explanations" class="select2_single form-control" tabindex="-1" required="required">
+                                                            <option value="true">true</option>
+                                                            <option value="false" selected>false</option>
+                                                        </select>
+                                                        <br />includes the full explanations for each item if true (default is false)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Include Prime Types List</label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <select id="get-all-primes-between-two-numbers-include-prime-types-list" class="select2_single form-control" tabindex="-1" required="required">
+                                                            <option value="true">true</option>
+                                                            <option value="false" selected>false</option>
+                                                        </select>
+                                                        <br />includes the full prime types list for each item if true (default is false)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align">language <span class="required">*</span>
+                                                        </label>
+
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <select id="get-all-primes-between-two-numbers-language" class="select2_single form-control" tabindex="-1" required="required">
+                                                            <option value="english" selected>english</option>
+                                                            <option value="mandarin">mandarin</option>
+                                                            <option value="hindi">hindi</option>
+                                                            <option value="spanish">spanish</option>
+                                                            <option value="french">french</option>
+                                                            <option value="german">german</option>
+                                                            <option value="italian">italian</option>
+                                                            <option value="japanese">japanese</option>
+                                                            <option value="russian">russian</option>
+                                                        </select>
+                                                        <br />show the output translated into that language (it can be english, mandarin, hindi, spanish, french, german, italian, japanese, russian) (default is english)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-md-9 col-sm-9  offset-md-3">
+                                                        <button class="btn btn-secondary" type="reset">Cancel</button>
+                                                        <button type="submit" class="btn btn-success">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <div class="alert alert-danger alert-dismissible show-error error-get-all-primes-between-two-numbers" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                                <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
+                                            </div>
+                                            <!-- display results -->
+                                            <div class="x_title display-results results-get-all-primes-between-two-numbers">
+                                                <h2>Basic Tables <small>basic table subtitle</small></h2>
+                                                <ul class="nav navbar-right panel_toolbox">
+                                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                            <a class="dropdown-item" href="#">Settings 1</a>
+                                                            <a class="dropdown-item" href="#">Settings 2</a>
+                                                        </div>
+                                                    </li>
+                                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                                    </li>
+                                                </ul>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="x_content display-results results-get-all-primes-between-two-numbers">
+
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Key</th>
+                                                            <th>Value</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="results-get-all-primes-between-two-numbers-show">
+
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+
+                                            <!-- /display results -->
+                                        </div>
+                                        <div class="tab-pane fade" id="prospect-primes-between-two-numbers" role="tabpanel" aria-labelledby="prospect-primes-between-two-numbers">
+                                            <form class="form-horizontal form-label-left prospect-primes-between-two-numbers">
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="prospect-primes-between-two-numbers-apiKey">
+                                                        apiKey
+                                                        <span class="required">*</span>
+                                                        </label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <input type="text" id="prospect-primes-between-two-numbers-apiKey" name="prospect-primes-between-two-numbers-apiKey" required="required" class="form-control  " value="123">
+                                                        <br />(Required) your API key
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="prospect-primes-between-two-numbers-start">
+                                                        start
+                                                        <span class="required">*</span>
+                                                        </label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <input type="number" id="prospect-primes-between-two-numbers-start" name="prospect-primes-between-two-numbers-start" required="required" class="form-control " value="330">
+                                                        <br />(Required if the end is specified) the number from which the process will start (needs to be smaller than the end)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="prospect-primes-between-two-numbers-end">
+                                                        end
+                                                        <span class="required">*</span>
+                                                        </label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <input type="number" id="prospect-primes-between-two-numbers-end" name="prospect-primes-between-two-numbers-end" required="required" class="form-control " value="1000">
+                                                        <br />(Required if the start is specified) the number to which the process will end (needs to be larger than the start)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Include Explanations</label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <select id="prospect-primes-between-two-numbers-include-explanations" class="select2_single form-control" tabindex="-1" required="required">
+                                                            <option value="true">true</option>
+                                                            <option value="false" selected>false</option>
+                                                        </select>
+                                                        <br />includes the full explanations for each item if true (default is false)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Include Prime Types List</label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <select id="prospect-primes-between-two-numbers-include-prime-types-list" class="select2_single form-control" tabindex="-1" required="required">
+                                                            <option value="true">true</option>
+                                                            <option value="false" selected>false</option>
+                                                        </select>
+                                                        <br />includes the full prime types list for each item if true (default is false)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align">language <span class="required">*</span>
+                                                        </label>
+
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <select id="prospect-primes-between-two-numbers-language" class="select2_single form-control" tabindex="-1" required="required">
+                                                            <option value="english" selected>english</option>
+                                                            <option value="mandarin">mandarin</option>
+                                                            <option value="hindi">hindi</option>
+                                                            <option value="spanish">spanish</option>
+                                                            <option value="french">french</option>
+                                                            <option value="german">german</option>
+                                                            <option value="italian">italian</option>
+                                                            <option value="japanese">japanese</option>
+                                                            <option value="russian">russian</option>
+                                                        </select>
+                                                        <br />show the output translated into that language (it can be english, mandarin, hindi, spanish, french, german, italian, japanese, russian) (default is english)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-md-9 col-sm-9  offset-md-3">
+                                                        <button class="btn btn-secondary" type="reset">Cancel</button>
+                                                        <button type="submit" class="btn btn-success">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <div class="alert alert-danger alert-dismissible show-error error-prospect-primes-between-two-numbers" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                                <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
+                                            </div>
+                                            <!-- display results -->
+                                            <div class="x_title display-results results-prospect-primes-between-two-numbers">
+                                                <h2>Basic Tables <small>basic table subtitle</small></h2>
+                                                <ul class="nav navbar-right panel_toolbox">
+                                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                            <a class="dropdown-item" href="#">Settings 1</a>
+                                                            <a class="dropdown-item" href="#">Settings 2</a>
+                                                        </div>
+                                                    </li>
+                                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                                    </li>
+                                                </ul>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="x_content display-results results-prospect-primes-between-two-numbers">
+
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Key</th>
+                                                            <th>Value</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="results-prospect-primes-between-two-numbers-show">
+
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+
+                                            <!-- /display results -->
+                                        </div>
+                                        <div class="tab-pane fade" id="get-isolated-random-prime" role="tabpanel" aria-labelledby="get-isolated-random-prime">
+                                            <form class="form-horizontal form-label-left get-isolated-random-prime">
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="get-isolated-random-prime-apiKey">
+                                                        apiKey
+                                                        <span class="required">*</span>
+                                                        </label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <input type="text" id="get-isolated-random-prime-apiKey" name="get-isolated-random-prime-apiKey" required="required" class="form-control  " value="123">
+                                                        <br />(Required) your API key
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="get-isolated-random-prime-minimum-combined-prime-gap">
+                                                        Minimum Combined Prime Gap
+                                                        <span class="required">*</span>
+                                                        </label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <input type="number" id="get-isolated-random-prime-minimum-combined-prime-gap" name="get-isolated-random-prime-minimum-combined-prime-gap" required="required" class="form-control " value="200">
+                                                        <br />the total numbers of neighbouring composite numbers on the right and on the left of the current prime number, determines how isolated this prime is and how hard it is to find it (value between
+                                                        200 and 500) (default is 200)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Include Explanations</label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <select id="get-isolated-random-prime-include-explanations" class="select2_single form-control" tabindex="-1" required="required">
+                                                            <option value="true">true</option>
+                                                            <option value="false" selected>false</option>
+                                                        </select>
+                                                        <br />includes the full explanations for each item if true (default is false)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align">Include Prime Types List</label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <select id="get-isolated-random-prime-include-prime-types-list" class="select2_single form-control" tabindex="-1" required="required">
+                                                            <option value="true">true</option>
+                                                            <option value="false" selected>false</option>
+                                                        </select>
+                                                        <br />includes the full prime types list for each item if true (default is false)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 label-align">language <span class="required">*</span>
+                                                        </label>
+
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <select id="get-isolated-random-prime-language" class="select2_single form-control" tabindex="-1" required="required">
+                                                            <option value="english" selected>english</option>
+                                                            <option value="mandarin">mandarin</option>
+                                                            <option value="hindi">hindi</option>
+                                                            <option value="spanish">spanish</option>
+                                                            <option value="french">french</option>
+                                                            <option value="german">german</option>
+                                                            <option value="italian">italian</option>
+                                                            <option value="japanese">japanese</option>
+                                                            <option value="russian">russian</option>
+                                                        </select>
+                                                        <br />show the output translated into that language (it can be english, mandarin, hindi, spanish, french, german, italian, japanese, russian) (default is english)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-md-9 col-sm-9  offset-md-3">
+                                                        <button class="btn btn-secondary" type="reset">Cancel</button>
+                                                        <button type="submit" class="btn btn-success">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <div class="alert alert-danger alert-dismissible show-error error-prospect-primes-between-two-numbers" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                                <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
+                                            </div>
+                                            <!-- display results -->
+                                            <div class="x_title display-results results-get-isolated-random-prime">
+                                                <h2>Basic Tables <small>basic table subtitle</small></h2>
+                                                <ul class="nav navbar-right panel_toolbox">
+                                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                            <a class="dropdown-item" href="#">Settings 1</a>
+                                                            <a class="dropdown-item" href="#">Settings 2</a>
+                                                        </div>
+                                                    </li>
+                                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                                    </li>
+                                                </ul>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="x_content display-results results-get-isolated-random-prime">
+
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Key</th>
+                                                            <th>Value</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="results-get-isolated-random-prime-show">
+
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+
+                                            <!-- /display results -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /page content -->
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    © <a href="http://prime-numbers-api.com/" target="_blank">Prime-Numbers-API.com</a>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- FastClick -->
+    <script src="js/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="js/nprogress.js"></script>
+    <!-- jQuery Smart Wizard -->
+    <script src="js/jquery.smartWizard.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="js/custom.min.js"></script>
+    <script src="js/api-calls-is-this-number-prime.js"></script>
+    <script src="js/api-calls-get-random-prime.js"></script>
+    <script src="js/api-calls-get-all-primes-between-two-numbers.js"></script>
+    <script src="js/api-calls-prospect-primes-between-two-numbers.js"></script>
+    <script src="js/api-calls-get-isolated-random-prime.js"></script>
+</body>
+
+</html>

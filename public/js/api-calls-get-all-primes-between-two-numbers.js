@@ -53,7 +53,9 @@ $(document).ready(function () {
     get_all_primes_between_two_numbers_include_prime_types_list,
     get_all_primes_between_two_numbers_language
   ) {
-    let get_all_primes_between_two_numbers_api_url = `http://api.prime-numbers.io/get-all-primes-between-two-numbers.php?key=${get_all_primes_between_two_numbers_apiKey}&start=${get_all_primes_between_two_numbers_check_start}&end=${get_all_primes_between_two_numbers_check_end}&include_explanations=${get_all_primes_between_two_numbers_include_explanations}&include_prime_types_list=${get_all_primes_between_two_numbers_include_prime_types_list}&language=${get_all_primes_between_two_numbers_language}`;
+    // let get_all_primes_between_two_numbers_api_url = `http://api.prime-numbers.io/get-all-primes-between-two-numbers.php?key=${get_all_primes_between_two_numbers_apiKey}&start=${get_all_primes_between_two_numbers_check_start}&end=${get_all_primes_between_two_numbers_check_end}&include_explanations=${get_all_primes_between_two_numbers_include_explanations}&include_prime_types_list=${get_all_primes_between_two_numbers_include_prime_types_list}&language=${get_all_primes_between_two_numbers_language}`;
+
+    let get_all_primes_between_two_numbers_api_url = `${api_base_url}/api/get-all-primes-between-two-numbers/${get_all_primes_between_two_numbers_apiKey}/${get_all_primes_between_two_numbers_check_start}/${get_all_primes_between_two_numbers_check_end}/${get_all_primes_between_two_numbers_include_explanations}/${get_all_primes_between_two_numbers_include_prime_types_list}/${get_all_primes_between_two_numbers_language}`;
 
     console.log(get_all_primes_between_two_numbers_api_url);
 

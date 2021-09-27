@@ -73,6 +73,25 @@ let is_this_number_prime_api_call = function (is_this_number_prime_apiKey, is_th
     return emitter;
 };
 
+
+
+let get_all_primes_between_two_numbers_api_call = function (get_all_primes_between_two_numbers_apiKey, get_all_primes_between_two_numbers_check_start, get_all_primes_between_two_numbers_check_end, get_all_primes_between_two_numbers_include_explanations, get_all_primes_between_two_numbers_include_prime_types_list, get_all_primes_between_two_numbers_language) {
+    let emitter = new events.EventEmitter();
+    let requestString = `http://api.prime-numbers.io/get-all-primes-between-two-numbers.php?key=${get_all_primes_between_two_numbers_apiKey}&start=${get_all_primes_between_two_numbers_check_start}&end=${get_all_primes_between_two_numbers_check_end}&include_explanations=${get_all_primes_between_two_numbers_include_explanations}&include_prime_types_list=${get_all_primes_between_two_numbers_include_prime_types_list}&language=${get_all_primes_between_two_numbers_language}`
+    unirest
+        .get(requestString)
+        .end(function (result) {
+            if (result.status === 200) {
+                // console.log(result.body);
+                emitter.emit("end", result.body);
+            }
+            else {
+                emitter.emit("error", result.status);
+            }
+        });
+    return emitter;
+};
+
 /////////////////////////////////////////////////////////////////////////////////////////
 // local API endpoints
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -96,6 +115,22 @@ app.get("/api/get-random-prime/:get_random_prime_apiKey/:get_random_prime_check_
 app.get("/api/is-this-number-prime/:is_this_number_prime_apiKey/:is_this_number_prime_check_number/:is_this_number_prime_include_explanations/:is_this_number_prime_include_prime_types_list/:is_this_number_prime_language", function (req, res) {
     //external api function call and response
     let searchReq = is_this_number_prime_api_call(req.params.is_this_number_prime_apiKey, req.params.is_this_number_prime_check_number, req.params.is_this_number_prime_include_explanations, req.params.is_this_number_prime_include_prime_types_list, req.params.is_this_number_prime_language);
+
+    //get the data from the first api call
+    searchReq.on("end", function (results) {
+        res.json(results);
+    });
+
+    //error handling
+    searchReq.on("error", function (code) {
+        res.sendStatus(code);
+    });
+});
+
+
+app.get("/api/get-all-primes-between-two-numbers/:get_all_primes_between_two_numbers_apiKey/:get_all_primes_between_two_numbers_check_start/:get_all_primes_between_two_numbers_check_end/:get_all_primes_between_two_numbers_include_explanations/:get_all_primes_between_two_numbers_include_prime_types_list/:get_all_primes_between_two_numbers_language", function (req, res) {
+    //external api function call and response
+    let searchReq = get_all_primes_between_two_numbers_api_call(req.params.get_all_primes_between_two_numbers_apiKey, req.params.get_all_primes_between_two_numbers_check_start, req.params.get_all_primes_between_two_numbers_check_end, req.params.get_all_primes_between_two_numbers_include_explanations, req.params.get_all_primes_between_two_numbers_include_prime_types_list, req.params.get_all_primes_between_two_numbers_language);
 
     //get the data from the first api call
     searchReq.on("end", function (results) {

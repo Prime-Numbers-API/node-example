@@ -28,7 +28,9 @@ $(document).ready(function () {
     //step2 using the input from the user make the API call to get the JSON response
 
     function is_this_number_prime_api_call(is_this_number_prime_apiKey, is_this_number_prime_check_number, is_this_number_prime_include_explanations, is_this_number_prime_include_prime_types_list, is_this_number_prime_language) {
-        let is_this_number_prime_api_url = `http://api.prime-numbers.io/is-this-number-prime.php?key=${is_this_number_prime_apiKey}&number=${is_this_number_prime_check_number}&include_explanations=${is_this_number_prime_include_explanations}&include_prime_types_list=${is_this_number_prime_include_prime_types_list}&language=${is_this_number_prime_language}`
+        // let is_this_number_prime_api_url = `http://api.prime-numbers.io/is-this-number-prime.php?key=${is_this_number_prime_apiKey}&number=${is_this_number_prime_check_number}&include_explanations=${is_this_number_prime_include_explanations}&include_prime_types_list=${is_this_number_prime_include_prime_types_list}&language=${is_this_number_prime_language}`
+
+         let is_this_number_prime_api_url = `${api_base_url}/api/is-this-number-prime/${is_this_number_prime_apiKey}/${is_this_number_prime_check_number}/${is_this_number_prime_include_explanations}/${is_this_number_prime_include_prime_types_list}/${is_this_number_prime_language}`
 
         console.log(is_this_number_prime_api_url)
 

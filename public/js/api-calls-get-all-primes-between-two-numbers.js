@@ -1,4 +1,4 @@
-let api_base_url = "http://localhost:8000"
+// let api_base_url = "http://localhost:8000"
 
 $(document).ready(function () {
   // hide everything except logo on page load

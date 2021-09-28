@@ -28,7 +28,9 @@ $(document).ready(function () {
     //step2 using the input from the user make the API call to get the JSON response
 
     function get_isolated_random_prime_api_call(get_isolated_random_prime_apiKey, get_isolated_random_prime_check_minimum_combined_prime_gap, get_isolated_random_prime_include_explanations, get_isolated_random_prime_include_prime_types_list, get_isolated_random_prime_language) {
-        let get_isolated_random_prime_api_url = `http://api.prime-numbers.io/get-isolated-random-prime.php?key=${get_isolated_random_prime_apiKey}&minimum_combined_prime_gap=${get_isolated_random_prime_check_minimum_combined_prime_gap}&include_explanations=${get_isolated_random_prime_include_explanations}&include_prime_types_list=${get_isolated_random_prime_include_prime_types_list}&language=${get_isolated_random_prime_language}`
+        // let get_isolated_random_prime_api_url = `http://api.prime-numbers.io/get-isolated-random-prime.php?key=${get_isolated_random_prime_apiKey}&minimum_combined_prime_gap=${get_isolated_random_prime_check_minimum_combined_prime_gap}&include_explanations=${get_isolated_random_prime_include_explanations}&include_prime_types_list=${get_isolated_random_prime_include_prime_types_list}&language=${get_isolated_random_prime_language}`
+
+        let get_isolated_random_prime_api_url = `${api_base_url}/api/get-isolated-random-prime/${get_isolated_random_prime_apiKey}/${get_isolated_random_prime_check_minimum_combined_prime_gap}/${get_isolated_random_prime_include_explanations}/${get_isolated_random_prime_include_prime_types_list}/${get_isolated_random_prime_language}`
 
         console.log(get_isolated_random_prime_api_url)
 

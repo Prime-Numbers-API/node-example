@@ -110,6 +110,24 @@ let prospect_primes_between_two_numbers_api_call = function (prospect_primes_bet
     return emitter;
 };
 
+
+let get_isolated_random_prime_api_call = function (get_isolated_random_prime_apiKey, get_isolated_random_prime_check_minimum_combined_prime_gap, get_isolated_random_prime_include_explanations, get_isolated_random_prime_include_prime_types_list, get_isolated_random_prime_language) {
+    let emitter = new events.EventEmitter();
+    let requestString = `http://api.prime-numbers.io/get-isolated-random-prime.php?key=${get_isolated_random_prime_apiKey}&minimum_combined_prime_gap=${get_isolated_random_prime_check_minimum_combined_prime_gap}&include_explanations=${get_isolated_random_prime_include_explanations}&include_prime_types_list=${get_isolated_random_prime_include_prime_types_list}&language=${get_isolated_random_prime_language}`
+    unirest
+        .get(requestString)
+        .end(function (result) {
+            if (result.status === 200) {
+                // console.log(result.body);
+                emitter.emit("end", result.body);
+            }
+            else {
+                emitter.emit("error", result.status);
+            }
+        });
+    return emitter;
+};
+
 /////////////////////////////////////////////////////////////////////////////////////////
 // local API endpoints
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -165,6 +183,22 @@ app.get("/api/get-all-primes-between-two-numbers/:get_all_primes_between_two_num
 app.get("/api/prospect-primes-between-two-numbers/:prospect_primes_between_two_numbers_apiKey/:prospect_primes_between_two_numbers_check_start/:prospect_primes_between_two_numbers_check_end/:prospect_primes_between_two_numbers_include_explanations/:prospect_primes_between_two_numbers_include_prime_types_list/:prospect_primes_between_two_numbers_language", function (req, res) {
     //external api function call and response
     let searchReq = prospect_primes_between_two_numbers_api_call(req.params.prospect_primes_between_two_numbers_apiKey, req.params.prospect_primes_between_two_numbers_check_start, req.params.prospect_primes_between_two_numbers_check_end, req.params.prospect_primes_between_two_numbers_include_explanations, req.params.prospect_primes_between_two_numbers_include_prime_types_list, req.params.prospect_primes_between_two_numbers_language);
+
+    //get the data from the first api call
+    searchReq.on("end", function (results) {
+        res.json(results);
+    });
+
+    //error handling
+    searchReq.on("error", function (code) {
+        res.sendStatus(code);
+    });
+});
+
+
+app.get("/api/get-isolated-random-prime/:get_isolated_random_prime_apiKey/:get_isolated_random_prime_check_minimum_combined_prime_gap/:get_isolated_random_prime_include_explanations/:get_isolated_random_prime_include_prime_types_list/:get_isolated_random_prime_language", function (req, res) {
+    //external api function call and response
+    let searchReq = get_isolated_random_prime_api_call(req.params.get_isolated_random_prime_apiKey, req.params.get_isolated_random_prime_check_minimum_combined_prime_gap, req.params.get_isolated_random_prime_include_explanations, req.params.get_isolated_random_prime_include_prime_types_list, req.params.get_isolated_random_prime_language);
 
     //get the data from the first api call
     searchReq.on("end", function (results) {

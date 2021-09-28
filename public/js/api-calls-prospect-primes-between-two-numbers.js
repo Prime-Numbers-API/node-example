@@ -29,7 +29,9 @@ $(document).ready(function () {
     //step2 using the input from the user make the API call to get the JSON response
 
     function prospect_primes_between_two_numbers_api_call(prospect_primes_between_two_numbers_apiKey, prospect_primes_between_two_numbers_check_start, prospect_primes_between_two_numbers_check_end, prospect_primes_between_two_numbers_include_explanations, prospect_primes_between_two_numbers_include_prime_types_list, prospect_primes_between_two_numbers_language) {
-        let prospect_primes_between_two_numbers_api_url = `http://api.prime-numbers.io/prospect-primes-between-two-numbers.php?key=${prospect_primes_between_two_numbers_apiKey}&start=${prospect_primes_between_two_numbers_check_start}&end=${prospect_primes_between_two_numbers_check_end}&include_explanations=${prospect_primes_between_two_numbers_include_explanations}&include_prime_types_list=${prospect_primes_between_two_numbers_include_prime_types_list}&language=${prospect_primes_between_two_numbers_language}`
+        // let prospect_primes_between_two_numbers_api_url = `http://api.prime-numbers.io/prospect-primes-between-two-numbers.php?key=${prospect_primes_between_two_numbers_apiKey}&start=${prospect_primes_between_two_numbers_check_start}&end=${prospect_primes_between_two_numbers_check_end}&include_explanations=${prospect_primes_between_two_numbers_include_explanations}&include_prime_types_list=${prospect_primes_between_two_numbers_include_prime_types_list}&language=${prospect_primes_between_two_numbers_language}`
+
+        let prospect_primes_between_two_numbers_api_url = `${api_base_url}/api/prospect-primes-between-two-numbers/${prospect_primes_between_two_numbers_apiKey}/${prospect_primes_between_two_numbers_check_start}/${prospect_primes_between_two_numbers_check_end}/${prospect_primes_between_two_numbers_include_explanations}/${prospect_primes_between_two_numbers_include_prime_types_list}/${prospect_primes_between_two_numbers_language}`
 
         console.log(prospect_primes_between_two_numbers_api_url)
 
